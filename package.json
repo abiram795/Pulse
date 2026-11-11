@@ -1,0 +1,22 @@
+{
+  "name": "pulse-blogging-platform",
+  "version": "1.0.0",
+  "description": "A modern, responsive Blogging Platform built using HTML, CSS, and Vanilla JavaScript with persistent browser-based storage.",
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "test": "node test_suite.js"
+  },
+  "keywords": [
+    "blog",
+    "vanilla-javascript",
+    "html5",
+    "css3",
+    "localstorage",
+    "markdown",
+    "spa"
+  ],
+  "author": "Pulse Platform",
+  "license": "MIT"
+}
+

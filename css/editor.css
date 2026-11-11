@@ -1,0 +1,419 @@
+/**
+ * Editor View Styles
+ * Distraction-free writing environment with formatting toolbar, metadata inputs, and live preview.
+ */
+
+.editor-layout {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Editor Top Action Bar */
+.editor-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.editor-bar-left, .editor-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.editor-mode-pill {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background-color: var(--bg-surface-muted);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.editor-tabs-group {
+  display: flex;
+  background-color: var(--bg-surface-muted);
+  padding: 3px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.editor-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.editor-tab.active {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  box-shadow: var(--shadow-xs);
+}
+
+.editor-tab svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Metadata Drawer */
+.editor-metadata-box {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.metadata-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+}
+
+/* Tag Input */
+.tag-input-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  min-height: 44px;
+  transition: border-color var(--transition-fast);
+}
+
+.tag-input-container:focus-within {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.tags-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+}
+
+.remove-tag-chip {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 1px;
+}
+
+.remove-tag-chip svg {
+  width: 12px;
+  height: 12px;
+}
+
+.tag-inline-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  flex-grow: 1;
+  min-width: 120px;
+}
+
+/* Cover Image Section */
+.cover-image-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cover-image-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cover-image-header .input-label {
+  margin-bottom: 0;
+}
+
+.cover-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.file-upload-btn {
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* Presets Grid */
+.presets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+  padding: 12px;
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.preset-card {
+  position: relative;
+  height: 72px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.preset-card:hover {
+  transform: scale(1.03);
+  border-color: var(--primary);
+}
+
+.preset-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preset-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 4px 6px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+  color: #ffffff;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Cover Preview */
+.cover-preview-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--bg-surface-muted);
+}
+
+.cover-preview-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-cover-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Title & Subtitle inputs */
+.editor-titles-wrapper {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editor-title-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  outline: none;
+  padding: 4px 0;
+  line-height: 1.25;
+}
+
+.editor-title-input::placeholder {
+  color: var(--text-dim);
+}
+
+.editor-subtitle-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 1.1875rem;
+  color: var(--text-muted);
+  outline: none;
+  resize: none;
+  padding: 4px 0;
+  line-height: 1.5;
+}
+
+.editor-subtitle-input::placeholder {
+  color: var(--text-dim);
+}
+
+/* Toolbar */
+.editor-toolbar {
+  position: sticky;
+  top: calc(var(--header-height) + 8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 16px;
+  overflow-x: auto;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+}
+
+.toolbar-btn:hover {
+  background-color: var(--bg-surface-muted);
+  color: var(--text-main);
+}
+
+.toolbar-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.toolbar-sep {
+  width: 1px;
+  height: 20px;
+  background-color: var(--border-color);
+  margin: 0 4px;
+}
+
+/* Textarea */
+.editor-textarea-wrapper {
+  margin-bottom: 16px;
+}
+
+.editor-markdown-textarea {
+  width: 100%;
+  min-height: 480px;
+  padding: 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  outline: none;
+  resize: vertical;
+  transition: border-color var(--transition-fast);
+}
+
+.editor-markdown-textarea:focus {
+  border-color: var(--border-focus);
+}
+
+/* Stats Bar */
+.editor-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.editor-stats-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.auto-save-status {
+  color: var(--success);
+  font-weight: 500;
+}
+
+/* Preview Pane */
+.preview-mode-container {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  margin: 0 auto;
+}
+
+.preview-badge-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  margin-bottom: 24px;
+}
+
+.preview-badge-banner svg {
+  width: 14px;
+  height: 14px;
+}
+

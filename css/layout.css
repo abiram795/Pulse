@@ -1,0 +1,288 @@
+/**
+ * Layout Structure: App Header, Navigation, Main Viewport
+ */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  height: var(--header-height);
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(8px);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Brand */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+}
+
+.brand-logo-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.brand-dot {
+  color: var(--primary);
+}
+
+/* Header Search */
+.nav-search-form {
+  position: relative;
+  max-width: 360px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-search-icon {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+.nav-search-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.nav-search-input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  background-color: var(--bg-surface-muted);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  color: var(--text-main);
+  font-size: 0.875rem;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.nav-search-input:focus {
+  background-color: var(--bg-surface);
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Desktop Nav Links */
+.nav-links-desktop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-link {
+  padding: 8px 14px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-main);
+  background-color: var(--bg-surface-muted);
+}
+
+.nav-link.active {
+  color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.nav-bookmarks-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-counter-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: var(--radius-full);
+  min-width: 18px;
+  line-height: 1.2;
+}
+
+.nav-link.active .nav-counter-pill {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.nav-write-btn {
+  margin-left: 8px;
+}
+
+.nav-icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+/* Nav Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* User Menu & Dropdown */
+.user-menu-wrapper {
+  position: relative;
+}
+
+.user-avatar-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast);
+}
+
+.user-avatar-btn:hover {
+  transform: scale(1.05);
+}
+
+.nav-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+}
+
+.user-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 220px;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 8px 0;
+  z-index: 600;
+  animation: dropdownFade 150ms ease-out;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-main);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color var(--transition-fast);
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-surface-muted);
+}
+
+.dropdown-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 6px 0;
+}
+
+/* Mobile Nav Drawer */
+.mobile-menu-btn {
+  display: none;
+}
+
+.mobile-nav-drawer {
+  display: none;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 24px;
+}
+
+.mobile-nav-drawer.open {
+  display: block;
+}
+
+.mobile-nav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-nav-link {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* App Viewport */
+.app-viewport {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+  min-height: calc(100vh - var(--header-height));
+}
+
+.view-section {
+  width: 100%;
+}
